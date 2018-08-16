@@ -1,0 +1,18 @@
+---
+# tasks file for flask_web
+    - name: Install Python Flask dependencies
+      pip:
+        name: "{{ item }}"
+        state: present
+      environment: "{{proxy_env}}"
+      with_items:
+          - flask
+          - flask-mysql
+
+    - name: Copy source code
+      copy: src=app.py dest=/opt/app.py
+
+    - name: Run webserver
+      shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0 &
+      changed_when: False
+...

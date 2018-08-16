@@ -1,0 +1,8 @@
+---
+- name: Deploy Web Application
+  hosts: db_webserver, target2
+  roles:
+    - python
+    #- mysql_db
+    #- flask_web
+...

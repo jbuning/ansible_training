@@ -1,0 +1,25 @@
+---
+# tasks file for mysql_db
+  - name: Install mySQL
+    apt: name={{ item }} state=present
+    environment: "{{proxy_env}}"
+    with_items:
+      - mysql-server
+      - mysql-client
+    when: ansible_os_family == "Debian"
+    notify:
+      start mysql
+
+  - name: Create Application Database
+    mysql_db:
+      name: employee_db
+      state: present
+
+  - name: Create Application DB user
+    mysql_user:
+      name: db_user
+      password: Passw0rd
+      priv: '*.*:ALL'
+      state: present
+      host: '%'
+...

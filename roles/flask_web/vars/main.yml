@@ -1,0 +1,6 @@
+---
+# vars file for flask_web
+    proxy_env:
+      http_proxy: http://10.158.17.67:8080
+      https_proxy: http://10.158.17.67:8080
+...

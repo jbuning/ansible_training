@@ -1,0 +1,6 @@
+---
+# vars file for mysql_db
+    proxy_env:
+      http_proxy: http://10.158.17.67:8080
+      https_proxy: http://10.158.17.67:8080
+...
